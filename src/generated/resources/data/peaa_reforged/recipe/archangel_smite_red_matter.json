@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "peaa_reforged:archangel_smite_recipe"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "item": "projecte:iron_band"
+    },
+    "R": {
+      "item": "projecte:red_matter"
+    }
+  },
+  "pattern": [
+    "AFA",
+    "RIR",
+    "AFA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "projecte:archangel_smite"
+  }
+}

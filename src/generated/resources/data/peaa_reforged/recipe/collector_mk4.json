@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "projecte:collector_mk3"
+    },
+    "M": {
+      "item": "projecte:red_matter"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "CMC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "peaa_reforged:collector_mk4"
+  }
+}

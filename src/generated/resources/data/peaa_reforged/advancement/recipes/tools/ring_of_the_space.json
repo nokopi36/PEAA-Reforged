@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_swrg": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:swiftwolf_rending_gale"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "peaa_reforged:ring_of_the_space"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_swrg"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "peaa_reforged:ring_of_the_space"
+    ]
+  }
+}

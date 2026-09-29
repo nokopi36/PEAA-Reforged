@@ -1,0 +1,12 @@
+# Normalise line endings so the repo is identical on every platform.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF; gradlew must stay LF or it breaks on Linux/macOS.
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+gradlew     text eol=lf
+
+# Binary assets must never be touched.
+*.png       binary
+*.nbt       binary
+*.jar       binary

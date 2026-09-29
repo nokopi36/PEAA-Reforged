@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "generating=false": {
+      "model": "peaa_reforged:block/aegu_mk1"
+    },
+    "generating=true": {
+      "model": "peaa_reforged:block/aegu_mk1_on"
+    }
+  }
+}

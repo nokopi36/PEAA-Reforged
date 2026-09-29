@@ -1,0 +1,18 @@
+{
+  "block.peaa_reforged.aegu_mk1": "錬金術的エネルギー生成装置",
+  "block.peaa_reforged.aegu_mk2": "発展型AEGU",
+  "block.peaa_reforged.aegu_mk3": "究極型AEGU",
+  "block.peaa_reforged.collector_mk4": "EMCコレクター MK4",
+  "block.peaa_reforged.collector_mk5": "EMCコレクター MK5",
+  "item.peaa_reforged.ring_of_the_space": "司空の指輪",
+  "itemGroup.peaa_reforged": "PEAA",
+  "peaa_reforged.config.emc_mapper": "PEAA EMC マッパー",
+  "peaa_reforged.config.emc_mapper.button": "PEAA EMC マッパーを編集",
+  "peaa_reforged.config.emc_mapper.tooltip": "究極型 AEGU に EMC 値を与えます。レシピが満タンのクラインの星 Omega を要求するため ProjectE 側では導出できません。原典に合わせて既定では無効です。値は星の充填分を含まないため実際の製作コストより低くなります。正確な値にしたい場合は /projecte setemc で上書きしてください。",
+  "peaa_reforged.resourcepack.condenser_texture": "PEAA: EMCコンデンサー MK2 のテクスチャ",
+  "peaa_reforged.tooltip.emc_gen_rate": "生成量: %s EMC/秒",
+  "peaa_reforged.tooltip.emc_max_storage": "最大貯蔵量: %s EMC",
+  "peaa_reforged.tooltip.ring_charge_prompt": "%s で速度段階を変更（手に持った状態で）",
+  "peaa_reforged.tooltip.ring_flight_cost": "飛行中の消費: %s EMC/tick",
+  "peaa_reforged.tooltip.ring_speed": "速度段階: %s / %s"
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "peaa_reforged:item/ring_of_the_space_on"
+  }
+}

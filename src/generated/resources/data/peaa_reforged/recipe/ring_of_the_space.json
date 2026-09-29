@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "projecte:swiftwolf_rending_gale"
+    },
+    {
+      "item": "projecte:void_ring"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    },
+    {
+      "item": "projecte:red_matter"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "peaa_reforged:ring_of_the_space"
+  }
+}

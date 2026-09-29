@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dm_pedestal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:dm_pedestal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "peaa_reforged:aegu_mk1"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dm_pedestal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "peaa_reforged:aegu_mk1"
+    ]
+  }
+}

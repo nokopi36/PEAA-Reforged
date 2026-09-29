@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "peaa_reforged:aegu_mk2"
+    },
+    "K": {
+      "type": "neoforge:components",
+      "components": {
+        "projecte:stored_emc": 51200000
+      },
+      "items": "projecte:klein_star_omega"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AKA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "peaa_reforged:aegu_mk3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "peaa_reforged:block/collector_front",
+    "side": "peaa_reforged:block/collector_mk4_side",
+    "top": "peaa_reforged:block/collector_mk4_top"
+  }
+}

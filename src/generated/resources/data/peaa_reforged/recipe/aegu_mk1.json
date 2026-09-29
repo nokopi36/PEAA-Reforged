@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "projecte:collector_mk3"
+    },
+    "P": {
+      "item": "projecte:dm_pedestal"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "CPC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "peaa_reforged:aegu_mk1"
+  }
+}

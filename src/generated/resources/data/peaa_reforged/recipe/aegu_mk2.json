@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "peaa_reforged:aegu_mk1"
+    },
+    "S": {
+      "item": "projecte:klein_star_sphere"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ASA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "peaa_reforged:aegu_mk2"
+  }
+}

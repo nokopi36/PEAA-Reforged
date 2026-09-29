@@ -1,0 +1,54 @@
+# PEAA - mod metadata template.
+# Placeholders are expanded by the `generateModMetadata` task in build.gradle using the
+# values from gradle.properties. Note that Groovy's SimpleTemplateEngine evaluates every
+# dollar-brace placeholder in this file, comments included, so only write ones that
+# generateModMetadata actually declares.
+
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="nokopi"
+credits="Based on 'ProjectE Advanced Alchemy' (1.7.10) by Ryokusitai. See CREDITS.md"
+description='''
+A NeoForge 1.21.1 re-implementation of ProjectE Advanced Alchemy (PEAA),
+originally written by Ryokusitai for Minecraft 1.7.10.
+Adds Energy Collector MK4/MK5, the AEGU generator blocks and the Ring of the Space
+on top of ProjectE. The code is a fresh implementation; the textures and display
+names come from the original. Distributed under MMPL_J 1.0.1 -- see LICENSE.
+'''
+
+# Mixins are used for the two places SPEC asks PEAA to change ProjectE's own behaviour that its API
+# does not expose: the Gem Boots' airborne acceleration (SPEC 3.6) and the Dark Matter Furnace's ore
+# doubling rate (SPEC 3.4). See docs/DEVIATIONS.md D-020 and D-021.
+[[mixins]]
+config="${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
+
+# PEAA is an add-on: it cannot do anything without ProjectE, and it must load afterwards
+# so that ProjectE's blocks, items and capabilities already exist.
+# modId verified in refs/projecte/src/api/java/moze_intel/projecte/api/ProjectEAPI.java:5
+# version   verified in refs/projecte/gradle.properties (projecte_version=1.1.0)
+[[dependencies.${mod_id}]]
+modId="projecte"
+type="required"
+versionRange="[1.1.0,)"
+ordering="AFTER"
+side="BOTH"

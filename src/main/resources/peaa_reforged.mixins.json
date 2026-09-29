@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "peaa.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "peaa_reforged.refmap.json",
+  "mixins": [
+    "DMFurnaceBlockEntityMixin",
+    "GemFeetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

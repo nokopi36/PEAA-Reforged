@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "peaa_reforged:item/ring_of_the_space_on",
+      "predicate": {
+        "peaa_reforged:flying": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "peaa_reforged:item/ring_of_the_space"
+  }
+}

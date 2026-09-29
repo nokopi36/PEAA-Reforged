@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "peaa_reforged:archangel_smite_recipe"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_matter": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:red_matter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "peaa_reforged:archangel_smite_red_matter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_matter"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "peaa_reforged:archangel_smite_red_matter"
+    ]
+  }
+}
