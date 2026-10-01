@@ -8,7 +8,8 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>Generation rates are from SPEC 3.2.2 (originally the {@code generateEmcOfAEGU} table in
  * peaa.gameObjs.tiles.CondenserMK2TilePEAA:28). They are EMC per second, and are only ever produced
- * once an AEGU group is wired up to an Energy Condenser MK2 -- that linkage is not implemented yet.
+ * once an AEGU group forms around an Energy Condenser MK2; see
+ * {@link peaa.gameObjs.block_entities.AEGUBlockEntity}.
  */
 public enum EnumAEGUTier implements StringRepresentable {
 	MK1("aegu_mk1", 40),
