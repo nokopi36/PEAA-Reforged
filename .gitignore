@@ -41,8 +41,8 @@ repo/
 
 ### PEAA ###
 
-# ビルド成果物の受け渡し用（docs/SETUP.md 参照）
-dist/*.jar
+# ビルド成果物とページ用素材の置き場。中身はすべて生成物なので追跡しない。
+dist/
 
 # 参考資料。ProjectE / PEAA / NeoForge ドキュメントの複製で、他者の著作物なので公開しない。
 # 取得手順と固定コミットは docs/SETUP.md §1。
