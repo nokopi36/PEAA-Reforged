@@ -13,7 +13,11 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-version = mod_version
+// The jar is named <mod_id>-<minecraft_version>-<mod_version>.jar, which is what the ecosystem
+// expects of a mod released for several Minecraft versions (Mekanism-1.21.1-10.7.19.85.jar,
+// ProjectE-1.21.1-PE1.1.0.jar). The version inside neoforge.mods.toml stays mod_version:
+// generateModMetadata substitutes that property, not this one.
+version = "${minecraft_version}-${mod_version}"
 group = mod_group_id
 
 sourceSets.main.resources {
