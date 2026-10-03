@@ -79,4 +79,4 @@ ProjectE 側の `condenser_mk2.png` も同じ 64×64・同じ UV レイアウト
 | `assets/projecte/.../block/condenser_mk2`（内蔵パック内） | ProjectE のテクスチャを上書き（D-019） |
 | `item/ring_of_the_space{,_on}` | **未参照**。SPEC §3.5 の実装待ち |
 
-モデル・blockstate は `peaa.datagen.PEAABlockStateProvider` が生成し、`src/generated/resources/` に出力されます。
+モデル・blockstate は `com.nokopi.peaareforged.datagen.PEAABlockStateProvider` が生成し、`src/generated/resources/` に出力されます。

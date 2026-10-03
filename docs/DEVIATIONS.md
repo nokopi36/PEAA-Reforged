@@ -8,7 +8,7 @@
 
 ## D-001: クリエイティブタブを PEAA 独自にする
 
-- **対象**: `peaa.gameObjs.registries.PEAACreativeTabs`（SPEC §2.1, §2.3）
+- **対象**: `com.nokopi.peaareforged.gameObjs.registries.PEAACreativeTabs`（SPEC §2.1, §2.3）
 - **原典**: 追加ブロック・アイテムを ProjectE のクリエイティブタブ `ObjHandler.cTab` に入れていた
   （`refs/peaa/.../blocks/AEGU.java:36`、`items/RingFlightTeleport.java:67`、`ObjHandlerPEAA` 経由）
 - **本実装**: `peaa:main` という独自の `CreativeModeTab` を登録し、そこに全追加要素を入れる
@@ -37,7 +37,7 @@
 
 ## D-004: AEGU の稼働状態を BlockState にする
 
-- **対象**: `peaa.gameObjs.blocks.AEGUBlock`（SPEC §2.1, §3.2.6）
+- **対象**: `com.nokopi.peaareforged.gameObjs.blocks.AEGUBlock`（SPEC §2.1, §3.2.6）
 - **原典**: tier ごとに停止形・稼働形の 2 ブロックを登録し、`world.setBlock` で差し替えて切り替えていた
   （`refs/peaa/.../gameObjs/ObjHandlerPEAA.java:39-44`、`blocks/AEGU.java:68-93`）。registry 名は計 6 個
 - **本実装**: tier ごとに 1 ブロック（`peaa:aegu_mk1/2/3`）+ `BooleanProperty generating`
@@ -49,7 +49,7 @@
 
 ## D-005: コレクターを ProjectE から継承せず自前実装する
 
-- **対象**: `peaa.gameObjs.block_entities.CollectorPEAABlockEntity` / `container.CollectorPEAAContainer` /
+- **対象**: `com.nokopi.peaareforged.gameObjs.block_entities.CollectorPEAABlockEntity` / `container.CollectorPEAAContainer` /
   `client.gui.CollectorPEAAScreen`（SPEC §3.1）
 - **原典**: `CollectorPEAA extends Collector`、`CollectorMK4Tile extends CollectorMK1Tile` で ProjectE を継承
 - **本実装**: `BaseEmcBlockEntity`（ProjectE の公開 API）から再実装。Container / Screen も自前
@@ -64,7 +64,7 @@
 
 ## D-006: AEGU MK3 のレシピ判定を部分一致にする
 
-- **対象**: `peaa.datagen.PEAARecipeProvider#fullKleinStarOmega`（SPEC §4.5）
+- **対象**: `com.nokopi.peaareforged.datagen.PEAARecipeProvider#fullKleinStarOmega`（SPEC §4.5）
 - **原典**: `ItemStack.areItemStacksEqual` + `areItemStackTagsEqual` で NBT 全体の完全一致を要求
   （`refs/peaa/.../customRecipes/RecipeAEGUMk3.java:48-49`）
 - **本実装**: `DataComponentIngredient.of(false, projecte:stored_emc, 51200000, klein_star_omega)`
@@ -76,13 +76,13 @@
 
 ## D-007: 言語ファイルをデータ生成に移行
 
-- **対象**: `src/main/resources/assets/peaa_reforged/lang/*.json` → `peaa.datagen.PEAALangProvider`
+- **対象**: `src/main/resources/assets/peaa_reforged/lang/*.json` → `com.nokopi.peaareforged.datagen.PEAALangProvider`
 - **理由**: CLAUDE.md の「可能な限りデータ生成で出力」に従う。Step 1 では項目が 1 個だったため手書きにしていた
 - **決定**: 2026-09-24 / 実装者判断（Step 2）
 
 ## D-008: AEGU が生成した EMC を AEGU 側で緩衝する
 
-- **対象**: `peaa.gameObjs.block_entities.AEGUBlockEntity`（SPEC §3.3.2）
+- **対象**: `com.nokopi.peaareforged.gameObjs.block_entities.AEGUBlockEntity`（SPEC §3.3.2）
 - **原典**: コンデンサーのタイルを差し替え、`this.addEMC(generateEmc / 20)` で**受け入れ判定を迂回して**
   コンデンサーのバッファへ直接書き込んでいた（`refs/peaa/.../tiles/CondenserMK2TilePEAA.java:54`）
 - **本実装**: AEGU が `IEmcStorage.insertEmc` で注入する。ProjectE のコンデンサーは変換先アイテムが
@@ -97,7 +97,7 @@
 
 ## D-009: AEGU グループの状態を AEGU 側に持たせる
 
-- **対象**: `peaa.gameObjs.block_entities.AEGUBlockEntity`（SPEC §3.2.3〜3.2.7, §3.3.2）
+- **対象**: `com.nokopi.peaareforged.gameObjs.block_entities.AEGUBlockEntity`（SPEC §3.2.3〜3.2.7, §3.3.2）
 - **原典**: 差し替えたコンデンサーのタイルが `coordAEGU`（`String[3][26]`）・`numAEGU`・`generateEmc` を保持し、
   AEGU は設置・破壊時にそこへ登録／解除していた
 - **本実装**: ProjectE の BlockEntity を差し替えられないため、各 AEGU が自分で
@@ -122,7 +122,7 @@
 
 ## D-011: 飛行状態の同期を送信者のみに返す
 
-- **対象**: `peaa.network.SetFlyingPayload`（SPEC §3.5.8）
+- **対象**: `com.nokopi.peaareforged.network.SetFlyingPayload`（SPEC §3.5.8）
 - **原典**: サーバが受信後 `PacketHandlerPEAA.INSTANCE.sendToAll(...)` で**全プレイヤーに**ブロードキャストしていた
   （`refs/peaa/.../network/IsFlyingModeSyncPKTHandlerToServer.java:23`）
 - **本実装**: 送信者自身のスタックだけを更新し、通常のインベントリ同期で戻す
@@ -132,7 +132,7 @@
 
 ## D-012: 指輪の状態は `flying` のみを保存する
 
-- **対象**: `peaa.gameObjs.items.RingOfTheSpace` / `PEAADataComponents`（SPEC §3.5.9）
+- **対象**: `com.nokopi.peaareforged.gameObjs.items.RingOfTheSpace` / `PEAADataComponents`（SPEC §3.5.9）
 - **原典**: `canFlying` / `isHeld` / `flyingSpeed` / `isFlyingMode` / `invSlot` の 5 項目を NBT に保存
 - **本実装**: `peaa:flying`（＝ `isFlyingMode`）だけを Data Component 化。他の 4 つは毎 tick 算出する
   （EMC は ProjectE の `projecte:stored_emc`、チャージ段階は `projecte:charge` が持つ）
@@ -141,7 +141,7 @@
 
 ## D-013: 飛行中の指輪が複数あっても例外を投げない
 
-- **対象**: `peaa.client.RingFlightController#findRingSlot`（SPEC §6.2）
+- **対象**: `com.nokopi.peaareforged.client.RingFlightController#findRingSlot`（SPEC §6.2）
 - **原典**: ホットバーに飛行モード中の指輪が 2 つあると `InvalidParameterException` を投げていた
   （`refs/peaa/.../events/FlightEventHookPEAA.java:126-127`）
 - **本実装**: 最初に見つかった飛行中の指輪を使う。例外は投げない
@@ -150,7 +150,7 @@
 
 ## D-014: 指輪のツールチップにチャージ段階を表示する
 
-- **対象**: `peaa.gameObjs.items.RingOfTheSpace#appendHoverText`（SPEC §3.5）
+- **対象**: `com.nokopi.peaareforged.gameObjs.items.RingOfTheSpace#appendHoverText`（SPEC §3.5）
 - **原典**: 司空の指輪にツールチップは無かった（`events/ToolTipEvent.java` はコレクターと AEGU のみ）
 - **本実装**: 現在の速度段階（`0 / 3` 形式）、飛行中の消費 EMC/tick、チャージキーの案内を表示する
 - **理由**: チャージ段階はゲーム内で一切見えないのに、速度だけでなく
@@ -161,7 +161,7 @@
 
 ## D-015: config によるレシピ制御をデータパックの読み込み条件に置き換える
 
-- **対象**: `peaa.gameObjs.customRecipes.ArchangelSmiteRecipeCondition` / `peaa.config.PEAAConfig`（SPEC §3.9, §4.7）
+- **対象**: `com.nokopi.peaareforged.gameObjs.customRecipes.ArchangelSmiteRecipeCondition` / `com.nokopi.peaareforged.config.PEAAConfig`（SPEC §3.9, §4.7）
 - **原典**: `addRecipes()` の中で `if (PEAAConfig.registerArchangelSmiteRecipe)` を見て
   `GameRegistry.addRecipe` を呼ぶかどうか分岐していた（`refs/peaa/.../gameObjs/ObjHandlerPEAA.java:73-77`）
 - **本実装**: レシピは JSON（データパック）なので、レシピファイルに `neoforge:conditions` を埋め込み、
@@ -172,7 +172,7 @@
 
 ## D-016: config 項目 `enableHighSpeedMovementAbilityWhenLanding` を先送り（解消済み）
 
-- **対象**: `peaa.config.PEAAConfig`（SPEC §3.9）
+- **対象**: `com.nokopi.peaareforged.config.PEAAConfig`（SPEC §3.9）
 - **本実装**: SPEC §3.9 の 2 項目のうち、まず `enableArchangelSmiteRecipe` だけを追加した
 - **理由**: もう一方はジェムブーツの空中加速（SPEC §3.6）を制御する値で、消費側が未実装。
   何も効果のない項目を config ファイルに並べると混乱するため、§3.6 の実装と同時に追加する
@@ -183,7 +183,7 @@
 
 ## D-017: 究極型 AEGU の EMC 値を補うマッパーを追加（既定 OFF）
 
-- **対象**: `peaa.emc.PEAAEMCMapper`（SPEC §4.8, §6.3 判断 14）
+- **対象**: `com.nokopi.peaareforged.emc.PEAAEMCMapper`（SPEC §4.8, §6.3 判断 14）
 - **原典**: 追加ブロック・アイテムに EMC 値を一切設定していない
 - **本実装**: 既定 OFF のまま、任意で有効化できる `IEMCMapper` を 1 つ追加した。
   有効時は究極型 AEGU にだけ「発展型 AEGU ×8 + クラインの星 Omega」という変換を宣言する
@@ -205,7 +205,7 @@
 
 ## D-018: 水オーブ相殺をエンティティ差し替えではなくイベントで実装
 
-- **対象**: `peaa.events.ProjectileCollisionHandler`（SPEC §3.7）
+- **対象**: `com.nokopi.peaareforged.events.ProjectileCollisionHandler`（SPEC §3.7）
 - **原典**: ASM で ProjectE の水オーブを自前サブクラス `EntityWaterProjectilePEAA` に差し替え、
   その `onUpdate` で相殺判定していた（`refs/peaa/.../entity/EntityWaterProjectilePEAA.java:33-56`）
 - **本実装**: エンティティは差し替えず、`EntityTickEvent.Post` で水オーブを監視して
@@ -218,7 +218,7 @@
 
 ## D-019: MK2 コンデンサーのテクスチャを内蔵リソースパックで差し替え
 
-- **対象**: `peaa.client.PEAAResourcePacks` / `src/main/resources/peaa_condenser_texture/`（SPEC §5.3）
+- **対象**: `com.nokopi.peaareforged.client.PEAAResourcePacks` / `src/main/resources/peaa_condenser_texture/`（SPEC §5.3）
 - **原典**: ASM で ProjectE のレンダラー内のテクスチャ名前空間を `projecte` → `PEAA` に書き換えていた
   （`MK2TextureTransformer.java:74-82`）
 - **本実装**: `assets/projecte/textures/block/condenser_mk2.png` を差し替えるリソースを同梱し、
@@ -233,7 +233,7 @@
 
 ## D-020: ジェムブーツの空中加速抑制を Mixin で実装
 
-- **対象**: `peaa.mixin.GemFeetMixin` / `RingOfTheSpace#suppressesGemBootsBoost`（SPEC §3.6）
+- **対象**: `com.nokopi.peaareforged.mixin.GemFeetMixin` / `RingOfTheSpace#suppressesGemBootsBoost`（SPEC §3.6）
 - **原典**: ASM で `ObjHandler.gemFeet` を `GemFeetPEAA` に差し替えていた
 - **本実装**: **Mixin 1 件**。`moze_intel.projecte.gameObjs.items.armor.GemFeet#inventoryTick` の
   `player.zza` 読み取りに `@ModifyExpressionValue` を当て、抑制時に 0 を返す
@@ -251,14 +251,14 @@
 
 ## D-021: DM かまどの鉱石倍化と搬出方向を再現し、EMC 消費のみ見送り
 
-- **対象**: `peaa.mixin.DMFurnaceBlockEntityMixin`（SPEC §3.4）
+- **対象**: `com.nokopi.peaareforged.mixin.DMFurnaceBlockEntityMixin`（SPEC §3.4）
 - **原典**: ASM で `DMFurnaceTile` の親クラスを PEAA 版 RM かまどタイルに差し替え、
   鉱石 100% 倍化・EMC 消費 1.6/tick・上以外 5 方向への搬出をまとめて獲得していた
 - **本実装**: 同一 Mixin クラスに**注入 2 件**
   - `DMFurnaceBlockEntity#getOreDoubleChance` に `@ModifyReturnValue` を当てて 0.5F → 1.0F にする。
     RM かまどは自身で 1F を返すため影響を受けない
   - `DMFurnaceBlockEntity#tickServer` の **TAIL** に `@Inject` し、水平 4 方向へ出力を押し出す
-    （`peaa.util.InventoryPush#pushFurnaceOutputSideways`）。真下は ProjectE が同じ tick の直前に
+    （`com.nokopi.peaareforged.util.InventoryPush#pushFurnaceOutputSideways`）。真下は ProjectE が同じ tick の直前に
     処理しているので、合計で「上以外の 5 方向」になる
 - **判断 6（EMC 消費 2 → 1.6）を見送った理由**: **実装不能**。1.21.1 の EMC は `long` で小数を表現できず、
   加えて `EMC_CONSUMPTION` は `private static final long` として `tickServer` のバイトコードに定数畳み込みされている

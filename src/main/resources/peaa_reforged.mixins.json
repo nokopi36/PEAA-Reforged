@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "peaa.mixin",
+  "package": "com.nokopi.peaareforged.mixin",
   "compatibilityLevel": "JAVA_21",
   "refmap": "peaa_reforged.refmap.json",
   "mixins": [
